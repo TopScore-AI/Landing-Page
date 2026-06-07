@@ -1,48 +1,68 @@
-# Getting Started with the Monorepo
+# TopScore AI Landing Page
 
-This project is a monorepo managed by **Turborepo**.
+The official landing page for **TopScore AI**, an AI-powered tutoring and study resource platform designed for Kenyan students (CBC, IGCSE & KCSE).
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Backend/Services**: Firebase
 
 ## Project Structure
 
-- `apps/mobile`: The Flutter mobile application.
-- `apps/landing`: The Next.js landing page.
-- `docs`: Detailed documentation and implementation guides.
+- `src/app`: Next.js App Router pages and global styles.
+- `src/components`: Reusable UI components (Hero, BentoFeatures, Personalization, etc.).
+- `src/i18n`: Localization system for English and future language support.
+- `public`: Static assets including logos, screenshots, and SEO files.
 
-## Prerequisites
+## Getting Started
+
+### Prerequisites
 
 - Node.js `18+`
-- Flutter SDK `3.x`
-- npm or yarn
+- pnpm (recommended) or npm
 
-## Installation
+### Installation
 
 ```bash
-# Install root dependencies
+# Install dependencies
+pnpm install
+# or
 npm install
-
-# Install Flutter dependencies
-cd apps/mobile
-flutter pub get
 ```
 
-## Running the Applications
-
-From the root directory:
+### Development
 
 ```bash
-# Run both applications in development mode
+# Run the development server
 npm run dev
-
-# Run only the landing page
-npm run dev -- --filter=landing
-
-# Run only the mobile app (requires a device/emulator)
-cd apps/mobile
-flutter run
 ```
 
-## Common Scripts
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- `npm run dev`: Starts all apps in development mode.
-- `npm run build`: Builds all apps for production.
-- `npm run lint`: Runs linting for all workspace packages.
+### Build
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+```
+
+## Features
+
+- **AI Tutor**: 24/7 step-by-step explanations for Maths, Science, and more.
+- **Multimodal Support**: AI camera vision for problem-solving.
+- **Curriculum Alignment**: Fully grounded in CBC, KCSE, and IGCSE standards.
+- **Personalized Learning**: Adaptive questioning and cognitive analytics.
+- **Study Tools**: Smart PDF reader, automated flashcards, and progress tracking.
+
+## SEO & Analytics
+
+- **Metadata**: Configured for optimal search engine visibility.
+- **JSON-LD**: Structured data for Organization and SoftwareApplication schemas.
+- **Sitemap**: Automatically generated sitemap for indexing.

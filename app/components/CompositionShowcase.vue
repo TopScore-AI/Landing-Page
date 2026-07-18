@@ -1,0 +1,335 @@
+<script setup lang="ts">
+import { useLocale } from '~/composables/useLocale'
+import AnimatedSection from './AnimatedSection.vue'
+
+const { t } = useLocale()
+</script>
+
+<template>
+  <section class="wrapper">
+    <div class="container">
+      <div class="header">
+        <AnimatedSection animation="fadeUp">
+          <div class="label">{{ t('showcase.label') }}</div>
+          <h2 class="title">{{ t('showcase.title') }}</h2>
+          <p class="sub">{{ t('showcase.sub') }}</p>
+        </AnimatedSection>
+      </div>
+
+      <div class="grid">
+        <!-- Editor Side -->
+        <AnimatedSection animation="fadeUp" delay="0.1s">
+          <div class="editor">
+            <div class="editorHeader">
+              <div class="dotRed" />
+              <div class="dotYellow" />
+              <div class="dotGreen" />
+              <span class="editorTitle">{{ t('showcase.editor.title') }}</span>
+            </div>
+            <div class="editorContent">
+              <p class="typedText">
+                {{ t('showcase.editor.placeholder') }}
+                <span class="cursor">|</span>
+              </p>
+              <div class="placeholderLines">
+                <div class="line" />
+                <div class="lineShort" />
+                <div class="line" />
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        <!-- Grading Side -->
+        <AnimatedSection animation="fadeUp" delay="0.2s">
+          <div class="grading">
+            <h3 class="gradingTitle">{{ t('showcase.grading.title') }}</h3>
+            
+            <div class="scoreCircle">
+              <svg viewBox="0 0 36 36" class="circularChart">
+                <path class="circleBg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <text x="18" y="20.35" class="percentage">85%</text>
+              </svg>
+              <span>{{ t('showcase.grading.score') }}</span>
+            </div>
+
+            <div class="metrics">
+              <div class="metric">
+                <div class="metricLabel">
+                  <span>{{ t('showcase.grading.grammar') }}</span>
+                  <span>18/20</span>
+                </div>
+                <div class="bar"><div class="fill" style="width: 90%" /></div>
+              </div>
+              <div class="metric">
+                <div class="metricLabel">
+                  <span>{{ t('showcase.grading.vocabulary') }}</span>
+                  <span>16/20</span>
+                </div>
+                <div class="bar"><div class="fill" style="width: 80%" /></div>
+              </div>
+            </div>
+
+            <div class="feedback">
+              <strong>{{ t('showcase.grading.feedback') }}</strong>
+              <p>{{ t('showcase.grading.tips') }}</p>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.wrapper {
+  background: var(--bg);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(43, 78, 154, 0.1);
+  border: 1px solid rgba(43, 78, 154, 0.2);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Editor Side */
+.editor {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--glow);
+}
+
+.editorHeader {
+  background: var(--bg-subtle);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dotRed, .dotYellow, .dotGreen {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dotRed { background: #ff5f56; }
+.dotYellow { background: #ffbd2e; }
+.dotGreen { background: #27c93f; }
+
+.editorTitle {
+  margin-left: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.editorContent {
+  padding: 32px;
+  font-family: var(--font-body);
+}
+
+.typedText {
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.cursor {
+  color: var(--primary);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.placeholderLines {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0.1;
+}
+
+.line {
+  height: 6px;
+  background: var(--text);
+  border-radius: 3px;
+  width: 100%;
+}
+
+.lineShort {
+  height: 6px;
+  background: var(--text);
+  border-radius: 3px;
+  width: 70%;
+}
+
+/* Grading Side */
+.grading {
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.gradingTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.scoreCircle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.scoreCircle span {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.circularChart {
+  width: 100px;
+  height: 100px;
+}
+
+.circleBg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2.8;
+}
+
+.circle {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% { stroke-dasharray: 0, 100; }
+}
+
+.percentage {
+  fill: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.5em;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.metricLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.feedback {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.feedback strong {
+  display: block;
+  font-size: 13px;
+  color: var(--primary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.feedback p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr; }
+}
+</style>

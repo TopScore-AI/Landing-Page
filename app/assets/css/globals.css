@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-body), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), "Poppins", sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-serif), "Newsreader", serif;
+
+  --color-brand-primary: #2B4E9A; /* TopScore Blue */
+  --color-brand-secondary: #2D9A7C; /* TopScore Teal */
+  --color-brand-accent: #6C63FF; /* AI Accent Purple */
+  --color-surface: #fcfcfd;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.5rem;
+}
+
+@layer base {
+  :root {
+    --primary: #2B4E9A;
+    --primary-dark: #1E3A73;
+    --primary-foreground: #ffffff;
+    --text: #0F172A; /* Slate 900 */
+    --text-muted: #64748B; /* Slate 500 */
+    --muted-foreground: #64748B; /* Slate 500 */
+    --bg: #ffffff;
+    --background: #ffffff;
+    --bg-subtle: #F1F5F9; /* Slate 100 */
+    --bg-card: #ffffff;
+    --bg-card-hover: #ffffff;
+    --border: #E5E7EB; /* Slate 200 */
+    --input: #E5E7EB; /* Slate 200 */
+    --ring: #2B4E9A; /* Brand primary */
+    --ring-offset-background: #ffffff;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --accent: #F1F5F9;
+    --accent-foreground: #0F172A;
+    --secondary: #F1F5F9;
+    --secondary-foreground: #0F172A;
+    --radius: 40px;
+    --glow: 0 20px 40px rgba(43, 78, 154, 0.08);
+    --gradient-brand: linear-gradient(135deg, #2B4E9A 0%, #2D9A7C 100%);
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-slate-900 antialiased selection:bg-brand-primary/20 scroll-smooth;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-white/5 shadow-xl;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at top right, #f5f7ff 0%, #f8fafc 100%);
+  }
+
+  .accent-ring {
+    @apply shadow-[0_0_0_4px_rgba(79,70,229,0.1)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900;
+  }
+
+  .grad-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

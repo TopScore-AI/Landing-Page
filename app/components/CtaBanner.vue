@@ -22,9 +22,12 @@ const { t } = useLocale()
               :class="styles.storeBtn" aria-label="Get it on Google Play">
               <img src="/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" width="200" height="59" :class="styles.badge" >
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" :class="styles.storeBtn" aria-label="Download on the App Store">
-              <img src="/app-store-badge.svg" alt="Download on the App Store" width="200" height="59" :class="styles.badge" >
-            </a>
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-brand-primary/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span class="relative px-4 py-2 bg-white/10 text-white text-xs font-bold rounded-lg border border-white/20">
+                iOS Coming Soon
+              </span>
+            </div>
           </div>
         </div>
       </AnimatedSection>

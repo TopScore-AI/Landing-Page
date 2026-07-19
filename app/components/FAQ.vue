@@ -3,11 +3,66 @@ import { ref } from "vue"
 import { Plus, Minus, HelpCircle } from "lucide-vue-next"
 
 const faqs = [
-  { q: "Does it cover the new CBC (Competency Based Curriculum)?", a: "Yes! TopScore AI is fully updated with the Kenyan CBC curriculum from Early Years to Grade 12, including specific strands and sub-strands for Junior Secondary." },
-  { q: "Is the AI specific to the Kenyan syllabus (KCSE)?", a: "Absolutely. We use RAG (Retrieval Augmented Generation) to ground our AI in Kenyan textbooks, past papers, and KICD-approved materials to ensure accuracy." },
-  { q: "Can I use it for IGCSE or IB?", a: "Yes, our multi-curriculum engine allows you to switch between 8-4-4, CBC, and International systems (IGCSE, A-Levels) seamlessly." },
-  { q: "How does the 'AI Camera' work for math?", a: "Using Gemini's multimodal capabilities, you simply point your camera at a handwritten problem. The AI doesn't just give the answer; it explains the logic step-by-step." },
-  { q: "What are the subscription costs?", a: "You can start for free with basic features. Premium plans for advanced AI tools and unlimited study sessions start at just KES 300 per week or KES 1000 per month." },
+  { 
+    q: "How is TopScore AI different from ChatGPT or other AI tutors?", 
+    a: "Unlike generic AI chatbots, TopScore AI is specifically designed for Kenyan curriculum learning. We use the Socratic method—guiding you to discover answers through questions rather than just giving solutions. All our content is backed by real educational diagrams from official textbooks, not AI-generated images. Our AI has long-term memory and remembers your learning history to provide truly personalized tutoring." 
+  },
+  { 
+    q: "Does it cover the new CBC (Competency Based Curriculum)?", 
+    a: "Yes! TopScore AI is fully updated with the Kenyan CBC curriculum from Early Years to Grade 12, including specific strands and sub-strands for Junior Secondary. We have thousands of CBC assessments, learning activities, and competency-based resources." 
+  },
+  { 
+    q: "Is the AI specific to the Kenyan syllabus (KCSE)?", 
+    a: "Absolutely. We use RAG (Retrieval Augmented Generation) to ground our AI in Kenyan textbooks, past papers, and KICD-approved materials to ensure accuracy. Our AI tutor is trained specifically on KCSE content, not generic educational material." 
+  },
+  { 
+    q: "Can I use it for IGCSE or IB?", 
+    a: "Yes, our multi-curriculum engine allows you to switch between 8-4-4, CBC, and International systems (IGCSE, A-Levels) seamlessly. We have Cambridge IGCSE past papers, marking schemes, and international standard resources." 
+  },
+  { 
+    q: "How does the voice and screen sharing feature work?", 
+    a: "You can start a real-time video call with your AI tutor. The AI can see your screen to guide you through problems step-by-step, and can also use your camera to read handwritten work. This is especially helpful for complex math problems, chemistry equations, or when you need visual guidance." 
+  },
+  { 
+    q: "What are real educational diagrams and why do they matter?", 
+    a: "Unlike other AI tools that generate images that may be incorrect, TopScore AI uses actual curriculum diagrams from approved Kenyan textbooks. When you ask about the water cycle, photosynthesis, or chemical bonding, you get the exact diagrams your teachers use, ensuring accuracy and alignment with your exams." 
+  },
+  { 
+    q: "How does the Socratic method help me learn better?", 
+    a: "Instead of just giving you answers, our AI tutor asks you questions that guide you to discover the solution yourself. This builds critical thinking skills and deeper understanding. Research shows that students who learn through the Socratic method retain information longer and can apply it to new problems more effectively." 
+  },
+  { 
+    q: "What is the long-term memory feature?", 
+    a: "TopScore AI remembers your learning history, the topics you struggle with, and your progress over time. This means the tutor adapts to your specific needs—focusing on your weak areas and building on your strengths. The more you use it, the more personalized your learning experience becomes." 
+  },
+  { 
+    q: "How does the smart PDF viewer work?", 
+    a: "You can upload your textbooks, notes, or any PDF documents. Our AI analyzes the content and can answer questions about specific pages, create summaries, generate flashcards from the material, and break down complex topics into simple explanations. It's like having a study assistant for every textbook." 
+  },
+  { 
+    q: "Can I study offline?", 
+    a: "Yes! With the Monthly Scholar plan, you can download resources for offline study. This is perfect for students with limited data or those who want to study during commutes without internet access. Your progress syncs when you reconnect." 
+  },
+  { 
+    q: "What are multiplayer quizzes and competitive learning?", 
+    a: "You can challenge your friends to real-time quiz battles on any subject. Leaderboards show top performers, and you can compete in subject-specific challenges. For solo practice, our AI generates quizzes based on your weak areas with spaced repetition to ensure long-term retention." 
+  },
+  { 
+    q: "How does the 7-day free trial work?", 
+    a: "New users get full access to all premium features for 7 days, no credit card required. You can experience voice tutoring, screen sharing, unlimited AI questions, and all study resources. After the trial, you can choose to subscribe or continue with our free basic plan." 
+  },
+  { 
+    q: "What are the subscription costs?", 
+    a: "You can start for free with basic features (3 AI questions per day, basic resources). Premium plans for advanced AI tools and unlimited study sessions start at just KES 300 per week for exam preparation, or KES 1000 per month for the best value with all features including offline access and long-term memory." 
+  },
+  { 
+    q: "Is my data safe and private?", 
+    a: "Absolutely. We prioritize student privacy with content moderation, secure data storage, and parental controls for younger students. Your learning data is used only to personalize your experience and is never shared with third parties. Parents can access dashboards to monitor progress." 
+  },
+  { 
+    q: "Can parents monitor their child's progress?", 
+    a: "Yes, with the Monthly Scholar plan, parents get access to a dashboard showing their child's study time, progress in different subjects, weak areas, and improvement over time. This helps parents provide targeted support and celebrate achievements." 
+  },
 ]
 
 const openIndex = ref<number | null>(0)

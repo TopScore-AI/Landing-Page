@@ -2,9 +2,33 @@
 import { GraduationCap, BookOpen, Clock, ArrowRight } from "lucide-vue-next"
 
 const curricula = [
-  { title: "CBC", subtitle: "Competency Based Curriculum", desc: "Personalized learning paths designed to build real-world skills and competencies.", icon: GraduationCap, color: "bg-indigo-600" },
-  { title: "IGCSE", subtitle: "International Standard", desc: "Preparation for IGCSE exams with international standard resources and AI grounding.", icon: BookOpen, color: "bg-brand-primary" },
-  { title: "8-4-4", subtitle: "Transition Phase", desc: "Full support for students completing the 8-4-4 cycle with comprehensive past papers.", icon: Clock, color: "bg-slate-900" },
+  { 
+    title: "CBC", 
+    subtitle: "Competency Based Curriculum", 
+    desc: "Personalized learning paths designed to build real-world skills and competencies from Grade 1 through Grade 12.",
+    icon: GraduationCap, 
+    color: "bg-indigo-600",
+    subjects: ["Mathematics", "English", "Kiswahili", "Integrated Science", "Social Studies", "Creative Arts", "PE", "Religious Education"],
+    features: ["Grade 1-12 coverage", "Assessment-based learning", "Practical skill development", "Project-based assignments"]
+  },
+  { 
+    title: "IGCSE", 
+    subtitle: "International Standard", 
+    desc: "Comprehensive preparation for IGCSE exams with international standard resources, past papers, and AI-powered explanations.",
+    icon: BookOpen, 
+    color: "bg-brand-primary",
+    subjects: ["Mathematics", "Sciences (Biology, Chemistry, Physics)", "English Language", "English Literature", "History", "Geography", "Business Studies"],
+    features: ["Cambridge curriculum aligned", "Past paper analysis", "Exam technique training", "International standards"]
+  },
+  { 
+    title: "8-4-4", 
+    subtitle: "Transition Phase", 
+    desc: "Full support for students completing the 8-4-4 cycle with comprehensive KCSE past papers, marking schemes, and exam preparation.",
+    icon: Clock, 
+    color: "bg-slate-900",
+    subjects: ["Mathematics", "English", "Kiswahili", "Biology", "Chemistry", "Physics", "History", "Geography", "CRE/IRE/HRE"],
+    features: ["KCSE past papers (2010-2026)", "Marking schemes", "Exam predictions", "Subject combinations"]
+  },
 ]
 </script>
 
@@ -40,6 +64,26 @@ const curricula = [
             <span class="text-[10px] font-black text-slate-400 tracking-[0.2em] uppercase block">{{ item.subtitle }}</span>
             <h4 class="text-4xl font-display font-black text-slate-900 tracking-tight">{{ item.title }}</h4>
             <p class="text-slate-500 leading-relaxed text-base font-medium">{{ item.desc }}</p>
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <div>
+              <div class="text-xs font-bold text-slate-900 mb-2 uppercase tracking-wider">Subjects Covered</div>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="subject in item.subjects" :key="subject" class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">
+                  {{ subject }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-slate-900 mb-2 uppercase tracking-wider">Key Features</div>
+              <div class="space-y-2">
+                <div v-for="feature in item.features" :key="feature" class="flex items-center gap-2 text-sm text-slate-600">
+                  <div class="w-1.5 h-1.5 rounded-full bg-brand-primary" />
+                  <span>{{ feature }}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="mt-12 flex items-center gap-2 text-brand-primary font-black text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2">

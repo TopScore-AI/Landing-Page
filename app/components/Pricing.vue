@@ -1,10 +1,73 @@
 <script setup lang="ts">
-import { Check, Sparkles } from "lucide-vue-next"
+import { Check, Sparkles, Zap } from "lucide-vue-next"
 
 const tiers = [
-  { name: "Basic", price: "Free", period: "", desc: "Perfect for casual study sessions.", features: ["3 AI Scans per day", "CBC & KCSE Notes", "Web Access"], cta: "Start Free", featured: false },
-  { name: "Weekly Scholar", price: "KES 300", period: "/wk", desc: "Quick boost before exams.", features: ["Unlimited AI Scans", "Gemini Live API Voice Tutor", "Multi-Curriculum Switcher", "Full Practice Library", "Priority Support"], cta: "Get Weekly", featured: false },
-  { name: "Monthly Scholar", price: "KES 1000", period: "/mo", desc: "Best value for consistent performance.", features: ["Everything in Weekly", "Personal Progress Analytics", "Custom Quiz Generator", "Download Study Guides"], cta: "Go Monthly", featured: true },
+  { 
+    name: "Basic", 
+    price: "Free", 
+    period: "", 
+    desc: "Perfect for casual study sessions and exploring the platform.",
+    features: [
+      "3 AI tutor questions per day",
+      "Access to CBC & KCSE notes",
+      "Basic past paper library",
+      "Web browser access",
+      "Community forum access",
+      "Study streak tracking"
+    ],
+    limitations: [
+      "Limited AI interactions",
+      "No voice/screen sharing",
+      "No personalized analytics",
+      "No multiplayer quizzes"
+    ],
+    cta: "Start Free", 
+    featured: false 
+  },
+  { 
+    name: "Weekly Scholar", 
+    price: "KES 300", 
+    period: "/wk", 
+    desc: "Quick boost before exams with full feature access.",
+    features: [
+      "Unlimited AI tutor questions",
+      "Voice & screen sharing tutor",
+      "Multi-curriculum switcher (CBC, 8-4-4, IGCSE)",
+      "Full KCSE past paper library (2010-2026)",
+      "Real educational diagrams",
+      "Smart PDF viewer with AI analysis",
+      "Priority support",
+      "Custom quiz generator"
+    ],
+    limitations: [
+      "No long-term progress tracking",
+      "No offline download access"
+    ],
+    cta: "Get Weekly", 
+    featured: false, 
+    badge: "Exam Special" 
+  },
+  { 
+    name: "Monthly Scholar", 
+    price: "KES 1000", 
+    period: "/mo", 
+    desc: "Best value for consistent performance and grade improvement.",
+    features: [
+      "Everything in Weekly Scholar",
+      "Personal progress analytics & reports",
+      "Long-term memory AI adaptation",
+      "Offline mode with resource downloads",
+      "Multiplayer competitive quizzes",
+      "AI flashcard generator with spaced repetition",
+      "Parent dashboard access",
+      "Exam predictions & study schedules",
+      "Early access to new features",
+      "Dedicated account manager"
+    ],
+    limitations: [],
+    cta: "Go Monthly", 
+    featured: true 
+  },
 ]
 </script>
 
@@ -40,6 +103,10 @@ const tiers = [
             <Sparkles class="w-3.5 h-3.5" />
             Most Popular
           </div>
+          <div v-if="tier.badge && !tier.featured" class="absolute -top-5 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-full flex items-center gap-2 shadow-xl shadow-amber-500/20">
+            <Zap class="w-3.5 h-3.5" />
+            {{ tier.badge }}
+          </div>
 
           <div class="mb-10">
             <h4 :class="['text-sm font-black uppercase tracking-[0.2em] mb-6', tier.featured ? 'text-brand-primary' : 'text-slate-400']">{{ tier.name }}</h4>
@@ -50,12 +117,29 @@ const tiers = [
             <p :class="['mt-4 text-base font-medium leading-relaxed', tier.featured ? 'text-slate-400' : 'text-slate-500']">{{ tier.desc }}</p>
           </div>
 
-          <div class="flex-grow space-y-5 mb-12">
-            <div v-for="(f, j) in tier.features" :key="j" class="flex items-start gap-4">
-              <div :class="['mt-1 shrink-0 w-5 h-5 rounded-full flex items-center justify-center', tier.featured ? 'bg-brand-primary/20 text-brand-primary' : 'bg-brand-primary/10 text-brand-primary']">
-                <Check class="w-3 h-3" />
+          <div class="flex-grow space-y-6 mb-12">
+            <div>
+              <div :class="['text-xs font-bold uppercase tracking-wider mb-4', tier.featured ? 'text-brand-primary' : 'text-slate-400']">Included Features</div>
+              <div class="space-y-4">
+                <div v-for="(f, j) in tier.features" :key="j" class="flex items-start gap-4">
+                  <div :class="['mt-1 shrink-0 w-5 h-5 rounded-full flex items-center justify-center', tier.featured ? 'bg-brand-primary/20 text-brand-primary' : 'bg-brand-primary/10 text-brand-primary']">
+                    <Check class="w-3 h-3" />
+                  </div>
+                  <span :class="['text-base font-medium leading-relaxed', tier.featured ? 'text-slate-300' : 'text-slate-600']">{{ f }}</span>
+                </div>
               </div>
-              <span :class="['text-base font-medium', tier.featured ? 'text-slate-300' : 'text-slate-600']">{{ f }}</span>
+            </div>
+            
+            <div v-if="tier.limitations && tier.limitations.length > 0">
+              <div :class="['text-xs font-bold uppercase tracking-wider mb-4', tier.featured ? 'text-slate-500' : 'text-slate-400']">Limitations</div>
+              <div class="space-y-3">
+                <div v-for="(limit, k) in tier.limitations" :key="k" class="flex items-start gap-3">
+                  <div class="mt-1 shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-slate-200 text-slate-400">
+                    <div class="w-2 h-0.5 bg-slate-400 rotate-45" />
+                  </div>
+                  <span :class="['text-sm font-medium leading-relaxed', tier.featured ? 'text-slate-500' : 'text-slate-500']">{{ limit }}</span>
+                </div>
+              </div>
             </div>
           </div>
 

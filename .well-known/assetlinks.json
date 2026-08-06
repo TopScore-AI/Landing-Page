@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.topscoreapp.ai",
+      "sha256_cert_fingerprints": [
+        "5E:3E:85:9E:F9:85:AC:02:50:01:6A:4F:05:DA:7A:87:98:97:0C:84:0C:87:4E:B7:23:D6:34:D2:94:26:5B:16"
+      ]
+    }
+  }
+]

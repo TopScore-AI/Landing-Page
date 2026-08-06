@@ -1,0 +1,97 @@
+/* Shared finishing layer: trust, mobile usability, and interaction polish. */
+:root {
+  --focus-ring: 0 0 0 4px rgba(225, 70, 44, 0.16);
+}
+
+header { border-bottom-color: rgba(15, 27, 44, 0.09); }
+.brand { letter-spacing: -0.015em; }
+.btn { min-height: 44px; }
+.btn:focus-visible, .store-pill:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* Give the hero a little more depth without competing with the product screen. */
+.hero {
+  background:
+    radial-gradient(700px 420px at 82% 18%, rgba(225, 70, 44, 0.07), transparent 65%),
+    radial-gradient(1200px 500px at 78% -10%, rgba(212, 166, 42, 0.14), transparent 60%),
+    var(--paper);
+}
+.hero .lead { max-width: 525px; }
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 18px;
+  color: var(--slate);
+  font-size: 13px;
+  font-weight: 600;
+}
+.hero-proof span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-proof span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(47, 93, 80, 0.12);
+}
+
+/* A measured credibility section: it describes concrete choices, not inflated claims. */
+.trust-panel {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 42px;
+  align-items: center;
+  padding: 40px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 22px 50px -42px rgba(15, 27, 44, .65);
+}
+.trust-panel h2 { font-size: clamp(28px, 3vw, 38px); }
+.trust-panel > div > p { margin-top: 16px; color: var(--slate); line-height: 1.65; }
+.trust-list { display: grid; gap: 14px; }
+.trust-item { display: grid; grid-template-columns: 36px 1fr; gap: 13px; align-items: start; }
+.trust-icon {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border-radius: 10px; background: rgba(47, 93, 80, .1); color: var(--green);
+  font-weight: 700;
+}
+.trust-item strong { display: block; margin-bottom: 3px; font-size: 14px; }
+.trust-item span { color: var(--slate); font-size: 13.5px; line-height: 1.5; }
+
+.stat-grid .lbl { line-height: 1.4; }
+.final-cta { box-shadow: 0 26px 70px -45px rgba(15, 27, 44, .8); }
+
+/* Keep the interactive demo in the initial desktop viewport. */
+.demo-stage { padding: 20px 0 34px; background: var(--paper); }
+.demo-stage .demo-frame-wrap { max-width: 960px; }
+.demo-intro { padding-top: 48px; }
+
+@media (max-width: 900px) {
+  .nav { position: relative; }
+  .nav-links {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 1px) !important;
+    left: -24px !important;
+    right: -24px !important;
+    padding: 20px 24px 24px !important;
+    gap: 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    background: rgba(250, 249, 244, .98) !important;
+    border-bottom: 1px solid var(--line) !important;
+    box-shadow: 0 18px 30px -26px rgba(15, 27, 44, .75) !important;
+  }
+  .nav-links.is-open { display: flex !important; }
+  .nav-links a { width: 100%; padding: 8px 0; }
+  .menu-toggle { display: block; }
+  .trust-panel { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding-top: 54px; }
+  .hero-proof { font-size: 12.5px; }
+  .trust-panel { padding: 24px 20px; border-radius: 16px; }
+  .demo-stage { padding-top: 12px; }
+}

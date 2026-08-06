@@ -1,0 +1,13 @@
+{
+  "name": "TopScore AI",
+  "short_name": "TopScore AI",
+  "description": "AI tutor app for CBC, 8-4-4/KCSE and Cambridge IGCSE students in Kenya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F1B2C",
+  "theme_color": "#0F1B2C",
+  "icons": [
+    { "src": "logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

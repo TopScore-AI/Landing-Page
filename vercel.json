@@ -44,15 +44,15 @@
   "rewrites": [
     {
       "source": "/features",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/how-it-works",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/curriculum",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/demo",
